@@ -1,213 +1,216 @@
 -- ============================================
 -- Advanced AI Auto-Fighter for Toribash
--- For offline/tutorial mode ONLY
+-- Offline/Tutorial mode ONLY
 -- ============================================
--- Load in-game: /ls ai_fighter_advanced
+-- /ls ai_fighter_advanced
 --
--- This version uses proven fighting combos and
--- randomized mutations to create varied attacks.
--- No learning phase needed — fights immediately!
+-- Smarter version: chains combos together,
+-- mutates moves for variety, never repeats
+-- the same pattern twice in a row.
 --
--- Features:
---   - 15 built-in combat combos (aikido, kicks, throws, etc.)
---   - Random combo selection each round
---   - Joint mutation for move variety
---   - Grip management
---   - Works instantly — no learning required
+-- Based on the exact same API pattern as the
+-- working Uke RandomCombo bot.
 
-local PLAYER = 0  -- 0 = Tori (you)
-local NUM_JOINTS = 20
+local move = 0
+local chosen = 0
+local last_chosen = 0
+local rounds = 0
+local mutation_rate = 15  -- % chance to mutate each joint
 
--- =====================
--- COMBAT COMBO LIBRARY
--- Each combo is a sequence of turns.
--- joints = {neck, chest, lumbar, abs, r_pec, r_shoulder, r_elbow,
---           l_pec, l_shoulder, l_elbow, r_grip, l_grip,
---           r_glute, r_hip, r_knee, r_ankle, l_glute, l_hip, l_knee, l_ankle}
--- States: 1=extend, 2=contract, 3=hold, 4=relax
--- =====================
-
-local COMBOS = {
-    { name = "Aikido Throw",
-        {grip={1,0}, joints={3,2,3,3,2,3,3,1,3,3,3,3,2,2,3,3,3,3,3,3}},
-        {grip={1,0}, joints={3,2,3,3,2,3,3,1,3,3,3,3,2,2,3,3,3,3,3,3}},
-        {grip={0,0}, joints={3,2,3,3,2,3,3,1,3,3,3,3,2,2,3,3,3,3,3,3}},
-        {grip={0,0}, joints={3,2,3,3,3,3,3,1,3,3,3,3,2,1,3,3,3,3,3,3}},
-        {grip={0,0}, joints={3,2,3,3,3,3,3,1,3,3,3,3,2,3,3,3,3,3,3,3}},
+-- Full combo library: {grip_r, grip_l, j0..j19}
+-- States: 1=extend 2=contract 3=hold 4=relax
+local combos = {
+    { -- 1: Aikido grab
+        {1,0, 3,2,3,3,2,3,3,1,3,3,3,3,2,2,3,3,3,3,3,3},
+        {1,0, 3,2,3,3,2,3,3,1,3,3,3,3,2,2,3,3,3,3,3,3},
+        {0,0, 3,2,3,3,2,3,3,1,3,3,3,3,2,2,3,3,3,3,3,3},
+        {0,0, 3,2,3,3,3,3,3,1,3,3,3,3,2,1,3,3,3,3,3,3},
+        {0,0, 3,2,3,3,3,3,3,1,3,3,3,3,2,3,3,3,3,3,3,3},
     },
-    { name = "Power Rush",
-        {grip={0,1}, joints={1,1,1,2,1,3,2,2,4,4,1,4,2,2,1,2,2,3,2,2}},
-        {grip={0,1}, joints={1,1,1,3,1,3,2,2,2,1,1,1,2,2,1,2,1,3,2,2}},
-        {grip={0,1}, joints={1,4,2,1,4,1,1,4,2,1,1,1,1,2,1,2,2,1,1,4}},
+    { -- 2: Power rush
+        {0,1, 1,1,1,2,1,3,2,2,4,4,1,4,2,2,1,2,2,3,2,2},
+        {0,1, 1,1,1,3,1,3,2,2,2,1,1,1,2,2,1,2,1,3,2,2},
+        {0,1, 1,4,2,1,4,1,1,4,2,1,1,1,1,2,1,2,2,1,1,4},
     },
-    { name = "Combo Breaker",
-        {grip={0,0}, joints={4,4,4,4,2,4,4,2,4,4,4,4,2,2,4,4,2,2,4,4}},
-        {grip={1,1}, joints={3,2,3,3,4,3,3,4,3,4,3,3,2,3,4,1,3,3,3,3}},
-        {grip={1,1}, joints={3,1,2,3,1,3,2,2,3,4,3,3,2,1,2,2,1,4,3,1}},
-        {grip={1,1}, joints={3,1,2,2,1,1,2,2,2,4,3,3,1,2,2,2,1,4,3,1}},
-        {grip={1,1}, joints={3,1,2,2,1,2,2,2,2,4,3,3,2,2,1,2,4,4,2,1}},
-        {grip={1,1}, joints={3,1,2,2,1,2,1,2,2,2,2,3,1,1,2,2,2,4,2,2}},
+    { -- 3: Combo breaker
+        {0,0, 4,4,4,4,2,4,4,2,4,4,4,4,2,2,4,4,2,2,4,4},
+        {1,1, 3,2,3,3,4,3,3,4,3,4,3,3,2,3,4,1,3,3,3,3},
+        {1,1, 3,1,2,3,1,3,2,2,3,4,3,3,2,1,2,2,1,4,3,1},
+        {1,1, 3,1,2,2,1,1,2,2,2,4,3,3,1,2,2,2,1,4,3,1},
+        {1,1, 3,1,2,2,1,2,2,2,2,4,3,3,2,2,1,2,4,4,2,1},
+        {1,1, 3,1,2,2,1,2,1,2,2,2,2,3,1,1,2,2,2,4,2,2},
     },
-    { name = "Judo Hip Toss",
-        {grip={1,0}, joints={3,2,2,3,2,3,3,1,3,3,1,3,2,2,2,1,3,2,3,3}},
-        {grip={1,0}, joints={3,2,2,3,2,3,3,1,3,3,1,3,2,2,2,1,3,1,3,3}},
-        {grip={1,0}, joints={3,2,2,3,2,2,3,1,3,3,1,3,1,1,2,3,3,1,3,3}},
-        {grip={1,0}, joints={3,2,2,3,2,2,3,4,3,3,1,3,1,1,2,3,3,1,3,3}},
+    { -- 4: Judo toss
+        {1,0, 3,2,2,3,2,3,3,1,3,3,1,3,2,2,2,1,3,2,3,3},
+        {1,0, 3,2,2,3,2,3,3,1,3,3,1,3,2,2,2,1,3,1,3,3},
+        {1,0, 3,2,2,3,2,2,3,1,3,3,1,3,1,1,2,3,3,1,3,3},
+        {1,0, 3,2,2,3,2,2,3,4,3,3,1,3,1,1,2,3,3,1,3,3},
     },
-    { name = "Flying Kick",
-        {grip={0,0}, joints={4,4,4,4,2,4,4,2,4,4,4,4,2,2,4,4,2,2,4,4}},
-        {grip={1,1}, joints={3,2,3,3,4,3,3,4,3,3,3,3,3,3,4,1,4,3,3,3}},
-        {grip={1,1}, joints={3,2,3,2,2,3,3,1,1,3,3,3,3,3,2,1,1,4,3,3}},
-        {grip={1,1}, joints={3,2,3,2,2,3,3,1,1,3,3,3,3,3,2,2,1,1,3,3}},
-        {grip={1,1}, joints={3,2,1,2,2,3,3,1,1,2,3,1,3,3,2,2,1,1,3,3}},
-        {grip={1,1}, joints={3,2,1,2,2,3,3,1,1,2,3,1,3,3,2,2,1,1,3,3}},
-        {grip={1,1}, joints={3,2,1,2,2,3,2,1,1,2,1,1,3,3,2,4,1,4,2,3}},
+    { -- 5: Flying kick
+        {0,0, 4,4,4,4,2,4,4,2,4,4,4,4,2,2,4,4,2,2,4,4},
+        {1,1, 3,2,3,2,2,3,3,1,1,3,3,3,3,3,2,1,1,4,3,3},
+        {1,1, 3,2,3,2,2,3,3,1,1,3,3,3,3,3,2,2,1,1,3,3},
+        {1,1, 3,2,1,2,2,3,3,1,1,2,3,1,3,3,2,2,1,1,3,3},
+        {1,1, 3,2,1,2,2,3,2,1,1,2,1,1,3,3,2,4,1,4,2,3},
     },
-    { name = "Spin Sweep",
-        {grip={0,0}, joints={4,2,2,4,2,1,4,4,4,4,4,4,2,4,2,4,4,4,4,4}},
-        {grip={1,0}, joints={4,2,2,4,2,2,4,4,4,4,4,4,2,4,2,1,4,4,4,4}},
-        {grip={1,1}, joints={4,1,2,4,1,2,4,2,2,4,4,4,1,1,1,2,1,1,4,1}},
-        {grip={1,1}, joints={4,1,2,4,1,2,4,2,2,4,4,4,1,1,1,2,1,1,4,1}},
-        {grip={1,1}, joints={4,1,1,4,1,2,4,2,1,4,4,4,2,1,1,1,1,1,4,1}},
+    { -- 6: Spin sweep
+        {0,0, 4,2,2,4,2,1,4,4,4,4,4,4,2,4,2,4,4,4,4,4},
+        {1,0, 4,2,2,4,2,2,4,4,4,4,4,4,2,4,2,1,4,4,4,4},
+        {1,1, 4,1,2,4,1,2,4,2,2,4,4,4,1,1,1,2,1,1,4,1},
+        {1,1, 4,1,1,4,1,2,4,2,1,4,4,4,2,1,1,1,1,1,4,1},
     },
-    { name = "Grapple Slam",
-        {grip={1,0}, joints={3,2,2,2,2,3,2,1,1,2,1,1,2,2,2,1,2,2,2,2}},
-        {grip={1,0}, joints={3,2,2,2,1,4,1,1,2,1,2,2,2,2,1,2,1,1,1,2}},
-        {grip={1,0}, joints={3,1,2,2,1,2,1,1,2,1,1,1,2,2,2,2,1,1,1,2}},
-        {grip={1,0}, joints={3,1,2,2,1,2,1,2,2,1,1,1,2,2,2,2,1,1,1,2}},
+    { -- 7: Grapple slam
+        {1,0, 3,2,2,2,2,3,2,1,1,2,1,1,2,2,2,1,2,2,2,2},
+        {1,0, 3,2,2,2,1,4,1,1,2,1,2,2,2,2,1,2,1,1,1,2},
+        {1,0, 3,1,2,2,1,2,1,1,2,1,1,1,2,2,2,2,1,1,1,2},
+        {1,0, 3,1,2,2,1,2,1,2,2,1,1,1,2,2,2,2,1,1,1,2},
     },
-    { name = "Double Grab",
-        {grip={1,1}, joints={3,3,3,3,2,3,1,2,3,1,1,1,2,3,3,3,3,3,3,3}},
-        {grip={1,1}, joints={3,3,3,3,2,2,1,2,2,1,1,1,2,3,3,3,3,3,3,3}},
-        {grip={1,1}, joints={3,3,3,3,2,2,1,2,2,1,1,1,2,3,2,2,3,3,3,3}},
+    { -- 8: Grab & kick
+        {1,1, 3,2,3,3,2,3,2,2,3,2,3,3,2,3,3,1,3,3,3,3},
+        {1,0, 3,1,1,1,2,2,1,1,2,1,3,1,1,2,2,2,1,3,3,3},
+        {1,0, 3,1,1,1,1,1,1,2,2,1,3,1,1,2,1,2,1,1,3,3},
+        {1,0, 3,2,1,1,1,2,1,2,2,1,3,1,1,2,2,2,1,1,3,3},
+        {1,0, 3,3,2,2,1,2,1,1,2,1,1,1,2,2,2,2,1,1,3,3},
     },
-    { name = "Grab & Kick",
-        {grip={1,1}, joints={3,2,3,3,2,3,2,2,3,2,3,3,2,3,3,1,3,3,3,3}},
-        {grip={1,0}, joints={3,1,1,1,2,2,1,1,2,1,3,1,1,2,2,2,1,3,3,3}},
-        {grip={1,0}, joints={3,1,1,1,1,1,1,2,2,1,3,1,1,2,1,2,1,1,3,3}},
-        {grip={1,0}, joints={3,2,1,1,1,2,1,2,2,1,3,1,1,2,2,2,1,1,3,3}},
-        {grip={1,0}, joints={3,3,2,2,1,2,1,1,2,1,1,1,2,2,2,2,1,1,3,3}},
+    { -- 9: Wushu
+        {0,0, 4,1,1,1,1,1,2,1,1,2,2,4,2,2,2,4,2,2,4,4},
+        {0,0, 4,2,1,2,2,2,1,2,2,1,1,4,1,2,2,4,1,1,4,4},
+        {0,0, 4,2,1,2,1,2,1,1,2,1,1,4,2,2,2,2,1,1,4,4},
+        {0,0, 4,1,2,2,2,2,1,2,4,1,1,4,2,2,4,4,1,1,4,4},
+        {0,0, 4,1,2,1,1,2,1,1,3,1,1,1,1,2,2,2,1,1,4,4},
+        {0,0, 4,1,2,1,1,2,1,2,2,1,1,1,1,2,2,2,1,1,4,4},
     },
-    { name = "Side Kick",
-        {grip={0,0}, joints={3,1,3,3,3,3,3,2,3,3,3,3,3,3,1,1,3,2,3,3}},
-        {grip={0,0}, joints={3,3,3,3,3,3,3,3,3,3,3,3,4,2,2,1,3,1,3,2}},
-        {grip={0,0}, joints={3,1,1,1,2,3,3,1,3,1,3,1,2,2,2,2,4,1,3,2}},
-        {grip={0,0}, joints={3,2,2,1,2,3,3,2,2,3,3,1,1,2,2,3,1,1,1,2}},
-        {grip={0,0}, joints={3,3,3,3,1,2,1,1,2,3,3,1,2,2,2,1,1,1,1,2}},
+    { -- 10: Tornado
+        {0,0, 4,1,4,4,1,4,4,2,1,4,4,4,4,4,4,4,4,4,4,4},
+        {0,0, 4,1,4,4,2,2,4,1,2,4,4,4,2,4,2,1,4,4,2,4},
+        {0,0, 4,2,4,4,1,2,1,2,2,1,4,4,1,2,2,2,4,4,2,4},
+        {0,0, 4,1,1,1,1,2,1,1,2,1,1,1,2,2,2,1,1,2,2,2},
+        {0,0, 4,4,1,1,1,2,1,1,2,1,1,1,2,2,1,2,1,1,2,2},
+        {0,0, 4,4,1,1,1,2,1,1,2,1,1,1,2,1,2,2,1,1,2,2},
+        {0,0, 4,4,1,2,1,2,1,1,2,1,1,1,2,2,2,2,1,1,2,2},
     },
-    { name = "Wushu Strike",
-        {grip={0,0}, joints={4,1,1,1,1,1,2,1,1,2,2,4,2,2,2,4,2,2,4,4}},
-        {grip={0,0}, joints={4,2,1,2,2,2,1,2,2,1,1,4,1,2,2,4,1,1,4,4}},
-        {grip={0,0}, joints={4,2,1,2,1,2,1,1,2,1,1,4,2,2,2,2,1,1,4,4}},
-        {grip={0,0}, joints={4,1,2,2,2,2,1,2,4,1,1,4,2,2,4,4,1,1,4,4}},
-        {grip={0,0}, joints={4,1,2,1,1,2,1,1,3,1,1,1,1,2,2,2,1,1,4,4}},
+    { -- 11: Knee strike
+        {0,0, 4,1,1,2,1,1,4,2,1,4,4,4,2,3,4,2,4,4,4,4},
+        {0,0, 4,2,2,2,2,2,1,1,2,1,1,4,2,2,2,1,1,1,1,4},
+        {0,0, 4,2,2,2,1,2,1,1,2,1,1,1,2,2,2,2,1,1,1,4},
+        {0,0, 4,1,2,1,2,1,1,2,2,1,1,1,2,2,2,2,1,1,1,4},
+        {0,0, 4,2,2,2,1,2,1,1,2,1,1,1,2,1,2,1,1,2,1,4},
+        {0,0, 4,1,2,2,1,2,1,1,2,1,1,1,2,2,1,2,1,1,1,4},
     },
-    { name = "Tornado",
-        {grip={0,0}, joints={4,1,4,4,1,4,4,2,1,4,4,4,4,4,4,4,4,4,4,4}},
-        {grip={0,0}, joints={4,1,4,4,2,2,4,1,2,4,4,4,2,4,2,1,4,4,2,4}},
-        {grip={0,0}, joints={4,2,4,4,1,2,1,2,2,1,4,4,1,2,2,2,4,4,2,4}},
-        {grip={0,0}, joints={4,1,1,1,1,2,1,1,2,1,1,1,2,2,2,1,1,2,2,2}},
-        {grip={0,0}, joints={4,4,1,1,1,2,1,1,2,1,1,1,2,2,1,2,1,1,2,2}},
+    { -- 12: Side kick chain
+        {0,0, 3,1,3,3,3,3,3,2,3,3,3,3,3,3,1,1,3,2,3,3},
+        {0,0, 3,3,3,3,3,3,3,3,3,3,3,3,4,2,2,1,3,1,3,2},
+        {0,0, 3,1,1,1,2,3,3,1,3,1,3,1,2,2,2,2,4,1,3,2},
+        {0,0, 3,2,2,1,2,3,3,2,2,3,3,1,1,2,2,3,1,1,1,2},
+        {0,0, 3,3,3,3,1,2,1,1,2,3,3,1,2,2,2,1,1,1,1,2},
     },
-    { name = "Knee Strike",
-        {grip={0,0}, joints={4,1,1,2,1,1,4,2,1,4,4,4,2,3,4,2,4,4,4,4}},
-        {grip={0,0}, joints={4,2,2,2,2,2,1,1,2,1,1,4,2,2,2,1,1,1,1,4}},
-        {grip={0,0}, joints={4,2,2,2,1,2,1,1,2,1,1,1,2,2,2,2,1,1,1,4}},
-        {grip={0,0}, joints={4,1,2,1,2,1,1,2,2,1,1,1,2,2,2,2,1,1,1,4}},
-        {grip={0,0}, joints={4,2,2,2,1,2,1,1,2,1,1,1,2,1,2,1,1,2,1,4}},
+    { -- 13: Quick jab
+        {0,0, 3,2,2,2,1,1,1,3,3,3,3,3,2,2,3,3,2,2,3,3},
+        {0,0, 3,1,1,1,1,2,2,3,3,3,3,3,2,2,2,2,2,2,2,2},
+        {0,0, 3,2,2,2,2,1,1,2,2,2,3,3,1,1,1,1,1,1,1,1},
     },
-    { name = "Quick Jab",
-        {grip={0,0}, joints={3,2,2,2,1,1,1,3,3,3,3,3,2,2,3,3,2,2,3,3}},
-        {grip={0,0}, joints={3,1,1,1,1,2,2,3,3,3,3,3,2,2,2,2,2,2,2,2}},
-        {grip={0,0}, joints={3,2,2,2,2,1,1,2,2,2,3,3,1,1,1,1,1,1,1,1}},
+    { -- 14: Leg sweep
+        {0,0, 4,2,2,2,3,3,3,3,3,3,3,3,1,1,2,1,2,2,1,2},
+        {0,0, 4,1,1,1,3,3,3,3,3,3,3,3,2,2,1,2,1,1,2,1},
+        {0,0, 4,2,1,2,3,3,3,3,3,3,3,3,1,2,2,1,2,1,1,2},
     },
-    { name = "Leg Sweep",
-        {grip={0,0}, joints={4,2,2,2,3,3,3,3,3,3,3,3,1,1,2,1,2,2,1,2}},
-        {grip={0,0}, joints={4,1,1,1,3,3,3,3,3,3,3,3,2,2,1,2,1,1,2,1}},
-        {grip={0,0}, joints={4,2,1,2,3,3,3,3,3,3,3,3,1,2,2,1,2,1,1,2}},
+    { -- 15: Full relax opener into attack
+        {0,0, 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4},
+        {0,0, 4,1,1,1,1,1,1,1,1,1,4,4,1,1,1,1,1,1,1,1},
+        {0,0, 3,2,2,2,2,2,2,2,2,2,3,3,2,2,2,2,2,2,2,2},
+        {1,1, 3,1,1,1,1,1,1,1,1,1,3,3,1,1,1,1,1,1,1,1},
     },
 }
 
--- =====================
--- STATE
--- =====================
-local active_combo = nil
-local active_combo_name = ""
-local turn_in_combo = 0
-local rounds_fought = 0
+local combo_names = {
+    "Aikido Throw", "Power Rush", "Combo Breaker", "Judo Toss",
+    "Flying Kick", "Spin Sweep", "Grapple Slam", "Grab & Kick",
+    "Wushu", "Tornado", "Knee Strike", "Side Kick Chain",
+    "Quick Jab", "Leg Sweep", "Relax Opener",
+}
 
--- =====================
--- APPLY A MOVE
--- =====================
-function apply_move(move_data)
-    for j = 0, NUM_JOINTS - 1 do
-        local state = move_data.joints[j + 1] or 3
-        set_joint_state(PLAYER, j, state)
-    end
-    if move_data.grip and set_grip_info then
-        set_grip_info(PLAYER, 11, move_data.grip[1] or 0)
-        set_grip_info(PLAYER, 12, move_data.grip[2] or 0)
-    end
-end
-
--- =====================
--- MUTATE A MOVE (for variety)
--- =====================
-function mutate_move(move_data)
-    local mutated = { joints = {}, grip = move_data.grip }
-    for j = 1, NUM_JOINTS do
-        if math.random() < 0.15 then
-            -- 15% chance to randomize each joint
-            mutated.joints[j] = math.random(1, 4)
+-- Mutate a turn: randomly change some joint states
+local function mutate(turn)
+    local m = {}
+    for i = 1, 22 do
+        if i > 2 and math.random(1, 100) <= mutation_rate then
+            m[i] = math.random(1, 4)
         else
-            mutated.joints[j] = move_data.joints[j]
+            m[i] = turn[i]
         end
     end
-    return mutated
+    return m
 end
 
--- =====================
--- PICK A COMBO
--- =====================
-function pick_combo()
-    local idx = math.random(1, #COMBOS)
-    active_combo = COMBOS[idx]
-    active_combo_name = active_combo.name or ("Combo #" .. idx)
-    turn_in_combo = 0
-    rounds_fought = rounds_fought + 1
-    echo("[AI+] Round " .. rounds_fought .. ": " .. active_combo_name)
+-- Apply a single turn
+local function apply_turn(turn)
+    if turn == nil then return end
+
+    for j = 0, 19 do
+        local state = turn[j + 3]
+        if state ~= nil then
+            set_joint_state(0, j, state)
+        end
+    end
+
+    if set_grip_info ~= nil then
+        if turn[1] ~= nil then set_grip_info(0, 11, turn[1]) end
+        if turn[2] ~= nil then set_grip_info(0, 12, turn[2]) end
+    end
 end
 
--- =====================
--- HOOKS
--- =====================
-function on_freeze()
-    if not active_combo then
+-- Pick next combo, avoid repeat
+local function pick_combo()
+    local attempts = 0
+    repeat
+        chosen = math.random(1, #combos)
+        attempts = attempts + 1
+    until chosen ~= last_chosen or attempts > 5
+
+    last_chosen = chosen
+    move = 0
+    rounds = rounds + 1
+end
+
+-- Advance to next move in combo
+local function do_move()
+    move = move + 1
+    local c = combos[chosen]
+
+    -- If combo ended, chain into a new one mid-round
+    if c == nil or c[move] == nil then
         pick_combo()
+        move = 1
+        c = combos[chosen]
+        if c == nil then return end
+        echo("[AI+] Chaining into: " .. (combo_names[chosen] or "?"))
     end
 
-    turn_in_combo = turn_in_combo + 1
+    local turn = c[move]
+    if turn == nil then return end
 
-    -- Get the move for this turn (loop if needed)
-    local move_idx = turn_in_combo
-    local combo_len = #active_combo
-    if move_idx > combo_len then
-        move_idx = ((turn_in_combo - 1) % combo_len) + 1
-    end
-
-    local move_data = active_combo[move_idx]
-    if move_data and move_data.joints then
-        -- Apply with occasional mutation for unpredictability
-        if math.random() < 0.2 then
-            apply_move(mutate_move(move_data))
-        else
-            apply_move(move_data)
-        end
+    -- Apply with mutation for variety
+    if math.random(1, 100) <= 25 then
+        apply_turn(mutate(turn))
+    else
+        apply_turn(turn)
     end
 end
 
-function on_new_game()
+-- Reinforce on exit_freeze
+local function redo_move()
+    local c = combos[chosen]
+    if c == nil then return end
+    local turn = c[move]
+    if turn == nil then return end
+    apply_turn(turn)
+end
+
+-- New round
+local function new_round()
     pick_combo()
+    echo("[AI+] Round " .. rounds .. ": " .. (combo_names[chosen] or ("Combo #" .. chosen)))
+    do_move()
 end
 
 -- =====================
@@ -216,17 +219,20 @@ end
 math.randomseed(os.time())
 
 echo("========================================")
-echo("  AI+ ADVANCED AUTO-FIGHTER")
+echo("  TORIBASH AI+ ADVANCED FIGHTER")
 echo("========================================")
-echo("  " .. #COMBOS .. " combat combos loaded")
-echo("  Styles: Aikido, Judo, Wushu, Kicks,")
-echo("  Throws, Sweeps, Grabs, and more!")
+echo("  " .. #combos .. " combat combos")
+echo("  Auto-chains combos when one finishes")
+echo("  " .. mutation_rate .. "% move mutation for variety")
+echo("  Never repeats same combo twice in a row")
 echo("  ")
-echo("  AI fights automatically every round")
-echo("  with randomized move selection")
+echo("  Just press Space and watch!")
 echo("========================================")
 
 pick_combo()
+do_move()
 
-add_hook("enter_freeze", "ai_adv_fighter", on_freeze)
-add_hook("new_game", "ai_adv_fighter", on_new_game)
+add_hook("enter_freeze", "ai_adv", do_move)
+add_hook("exit_freeze", "ai_adv_exit", redo_move)
+add_hook("new_game", "ai_adv_new", new_round)
+add_hook("new_mp_game", "ai_adv_mp", new_round)
