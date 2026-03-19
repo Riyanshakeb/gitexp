@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="card_blue">#5A9FE8</color>
+    <color name="card_blue_dark">#4A90D9</color>
+    <color name="input_bg">#1E2128</color>
+    <color name="input_border">#3A3F4A</color>
+
+    <color name="md_theme_primary">#ABC7FF</color>
+    <color name="md_theme_onPrimary">#002F65</color>
+    <color name="md_theme_primaryContainer">#1A4A7A</color>
+    <color name="md_theme_onPrimaryContainer">#D6E4FF</color>
+    <color name="md_theme_secondary">#BFC6DC</color>
+    <color name="md_theme_onSecondary">#293041</color>
+    <color name="md_theme_background">#1A1C20</color>
+    <color name="md_theme_onBackground">#E3E2E6</color>
+    <color name="md_theme_surface">#1A1C20</color>
+    <color name="md_theme_onSurface">#E3E2E6</color>
+    <color name="md_theme_surfaceVariant">#44474F</color>
+</resources>
