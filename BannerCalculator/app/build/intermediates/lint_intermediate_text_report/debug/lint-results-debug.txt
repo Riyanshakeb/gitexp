@@ -1,0 +1,371 @@
+/workspace/BannerCalculator/app/build.gradle.kts:54: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.18.0 [GradleDependency]
+    implementation("androidx.core:core-ktx:1.12.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:55: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation("androidx.appcompat:appcompat:1.6.1")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:56: Warning: A newer version of com.google.android.material:material than 1.11.0 is available: 1.13.0 [GradleDependency]
+    implementation("com.google.android.material:material:1.11.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:57: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:58: Warning: A newer version of androidx.navigation:navigation-fragment-ktx than 2.7.7 is available: 2.9.7 [GradleDependency]
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:59: Warning: A newer version of androidx.navigation:navigation-ui-ktx than 2.7.7 is available: 2.9.7 [GradleDependency]
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:60: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.10.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:61: Warning: A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.10.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:62: Warning: A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.4 [GradleDependency]
+    implementation("androidx.room:room-runtime:2.6.1")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:63: Warning: A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.4 [GradleDependency]
+    implementation("androidx.room:room-ktx:2.6.1")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:64: Warning: A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.4 [GradleDependency]
+    ksp("androidx.room:room-compiler:2.6.1")
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/build.gradle.kts:65: Warning: A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0 [GradleDependency]
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/calculate/BannerPreviewView.kt:68: Warning: Avoid object allocations during draw/layout operations (preallocate and reuse instead) [DrawAllocation]
+            val rect = RectF(x, yOffset, x + bw, yOffset + bh)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DrawAllocation":
+   You should avoid allocating objects during a drawing or layout operation.
+   These are called frequently, so a smooth UI can be interrupted by garbage
+   collection pauses caused by the object allocations.
+
+   The way this is generally handled is to allocate the needed objects up
+   front and to reuse them for each drawing operation.
+
+   Some methods allocate memory on your behalf (such as Bitmap.create), and
+   these should be handled in the same way.
+
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/calculate/CalculateFragment.kt:46: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                    adapter?.notifyDataSetChanged()
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/calculate/CalculateFragment.kt:63: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+            adapter?.notifyDataSetChanged()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/calculate/CalculateFragment.kt:68: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+            adapter?.notifyDataSetChanged()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_history.xml:7: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+    <LinearLayout
+     ~~~~~~~~~~~~
+
+   Explanation for issues of type "UseCompoundDrawables":
+   A LinearLayout which contains an ImageView and a TextView can be more
+   efficiently handled as a compound drawable (a single TextView, using the
+   drawableTop, drawableLeft, drawableRight and/or drawableBottom attributes
+   to draw one or more images adjacent to the text).
+
+   If the two widgets are offset from each other with margins, this can be
+   replaced with a drawablePadding attribute.
+
+   There's a lint quickfix to perform this conversion in the Eclipse plugin.
+
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_calculate.xml:6: Warning: Possible overdraw: Root element paints background ?attr/colorSurface with a theme that also paints a background (inferred theme is @style/Theme.BannerCalculator) [Overdraw]
+    android:background="?attr/colorSurface">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_history.xml:5: Warning: Possible overdraw: Root element paints background ?attr/colorSurface with a theme that also paints a background (inferred theme is @style/Theme.BannerCalculator) [Overdraw]
+    android:background="?attr/colorSurface">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:6: Warning: Possible overdraw: Root element paints background ?attr/colorSurface with a theme that also paints a background (inferred theme is @style/Theme.BannerCalculator) [Overdraw]
+    android:background="?attr/colorSurface">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/workspace/BannerCalculator/app/src/main/res/xml/backup_rules.xml:2: Warning: The resource R.xml.backup_rules appears to be unused [UnusedResources]
+<full-backup-content>
+^
+/workspace/BannerCalculator/app/src/main/res/values/colors.xml:4: Warning: The resource R.color.card_blue_dark appears to be unused [UnusedResources]
+    <color name="card_blue_dark">#3A7BC8</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/workspace/BannerCalculator/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/BannerCalculator/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml:2: Warning: The application adaptive roundIcon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:57: Warning: Missing autofillHints attribute [Autofill]
+            <EditText
+             ~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:92: Warning: Missing autofillHints attribute [Autofill]
+            <EditText
+             ~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:127: Warning: Missing autofillHints attribute [Autofill]
+            <EditText
+             ~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:148: Warning: Missing autofillHints attribute [Autofill]
+            <EditText
+             ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/calculate/BannerItemAdapter.kt:44: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        holder.tvItemTitle.text = "Banner ${position + 1}"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/calculate/BannerItemAdapter.kt:44: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        holder.tvItemTitle.text = "Banner ${position + 1}"
+                                            ~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/calculate/BannerItemAdapter.kt:44: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        holder.tvItemTitle.text = "Banner ${position + 1}"
+                                   ~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt:51: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        holder.tvQuantity.text = "Qty: ${order.totalQuantity}"
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt:51: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        holder.tvQuantity.text = "Qty: ${order.totalQuantity}"
+                                  ~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt:76: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                text = "Banner ${i + 1}: ${item.dimensionDisplay()} | Qty: ${item.quantity} | ${CurrencyFormatter.format(item.totalPrice, order.currency)}"
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt:76: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                text = "Banner ${i + 1}: ${item.dimensionDisplay()} | Qty: ${item.quantity} | ${CurrencyFormatter.format(item.totalPrice, order.currency)}"
+                                 ~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt:76: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                text = "Banner ${i + 1}: ${item.dimensionDisplay()} | Qty: ${item.quantity} | ${CurrencyFormatter.format(item.totalPrice, order.currency)}"
+                        ~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt:76: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                text = "Banner ${i + 1}: ${item.dimensionDisplay()} | Qty: ${item.quantity} | ${CurrencyFormatter.format(item.totalPrice, order.currency)}"
+                                                                   ~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/settings/SettingsFragment.kt:256: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        binding.tvAboutName.text = "\uD835\uDEB0\uD835\uDEC9\uD835\uDEA8\uD835\uDEC9-\uD835\uDEA6\uD835\uDEB1\uD835\uDEB0\uD835\uDEAF\uD835\uDEB7\uD835\uDEA8\uD835\uDEB2\uD835\uDEB4"
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/java/com/azizgraphics/clcltr/ui/settings/SettingsFragment.kt:257: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        binding.tvAboutPhone.text = "0305-3345518"
+                                     ~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_calculate.xml:33: Warning: Hardcoded string "Total Amount", should use @string resource [HardcodedText]
+                    android:text="Total Amount"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_calculate.xml:42: Warning: Hardcoded string "Rs. 0", should use @string resource [HardcodedText]
+                    android:text="Rs. 0"
+                    ~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_calculate.xml:52: Warning: Hardcoded string "0.00 sq.ft", should use @string resource [HardcodedText]
+                    android:text="0.00 sq.ft"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_calculate.xml:99: Warning: Hardcoded string "Add Item", should use @string resource [HardcodedText]
+                android:text="Add Item"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_calculate.xml:109: Warning: Hardcoded string "Clear All", should use @string resource [HardcodedText]
+                android:text="Clear All"
+                ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_calculate.xml:120: Warning: Hardcoded string "Save Order", should use @string resource [HardcodedText]
+                android:text="Save Order"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_history.xml:21: Warning: Hardcoded string "No orders", should use @string resource [HardcodedText]
+            android:contentDescription="No orders" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_history.xml:26: Warning: Hardcoded string "No orders yet", should use @string resource [HardcodedText]
+            android:text="No orders yet"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:17: Warning: Hardcoded string "Settings", should use @string resource [HardcodedText]
+            android:text="Settings"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:26: Warning: Hardcoded string "DEFAULTS", should use @string resource [HardcodedText]
+            android:text="DEFAULTS"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:51: Warning: Hardcoded string "Default Unit", should use @string resource [HardcodedText]
+                    android:text="Default Unit"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:58: Warning: Hardcoded string "Feet", should use @string resource [HardcodedText]
+                    android:text="Feet"
+                    ~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:85: Warning: Hardcoded string "Default Price/sq.ft", should use @string resource [HardcodedText]
+                    android:text="Default Price/sq.ft"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:92: Warning: Hardcoded string "Not set", should use @string resource [HardcodedText]
+                    android:text="Not set"
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:104: Warning: Hardcoded string "APPEARANCE", should use @string resource [HardcodedText]
+            android:text="APPEARANCE"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:129: Warning: Hardcoded string "Theme", should use @string resource [HardcodedText]
+                    android:text="Theme"
+                    ~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:136: Warning: Hardcoded string "System", should use @string resource [HardcodedText]
+                    android:text="System"
+                    ~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:163: Warning: Hardcoded string "Currency", should use @string resource [HardcodedText]
+                    android:text="Currency"
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:170: Warning: Hardcoded string "PKR", should use @string resource [HardcodedText]
+                    android:text="PKR"
+                    ~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:182: Warning: Hardcoded string "MANAGEMENT", should use @string resource [HardcodedText]
+            android:text="MANAGEMENT"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:199: Warning: Hardcoded string "Materials", should use @string resource [HardcodedText]
+                android:text="Materials"
+                ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:216: Warning: Hardcoded string "Customers", should use @string resource [HardcodedText]
+                android:text="Customers"
+                ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/fragment_settings.xml:226: Warning: Hardcoded string "ABOUT", should use @string resource [HardcodedText]
+            android:text="ABOUT"
+            ~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:28: Warning: Hardcoded string "Banner 1", should use @string resource [HardcodedText]
+                android:text="Banner 1"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:38: Warning: Hardcoded string "Delete", should use @string resource [HardcodedText]
+                android:contentDescription="Delete"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:54: Warning: Hardcoded string "Width", should use @string resource [HardcodedText]
+                android:text="Width"
+                ~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:63: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                android:hint="0"
+                ~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:89: Warning: Hardcoded string "Height", should use @string resource [HardcodedText]
+                android:text="Height"
+                ~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:98: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                android:hint="0"
+                ~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:124: Warning: Hardcoded string "Qty", should use @string resource [HardcodedText]
+                android:text="Qty"
+                ~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:133: Warning: Hardcoded string "1", should use @string resource [HardcodedText]
+                android:hint="1"
+                ~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:134: Warning: Hardcoded string "1", should use @string resource [HardcodedText]
+                android:text="1"
+                ~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:144: Warning: Hardcoded string "Rate", should use @string resource [HardcodedText]
+                android:text="Rate"
+                ~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:154: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                android:hint="0"
+                ~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:175: Warning: Hardcoded string "0.00 sq.ft", should use @string resource [HardcodedText]
+                android:text="0.00 sq.ft"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_banner.xml:183: Warning: Hardcoded string "Rs. 0", should use @string resource [HardcodedText]
+                android:text="Rs. 0"
+                ~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_order.xml:76: Warning: Hardcoded string "Share", should use @string resource [HardcodedText]
+                android:contentDescription="Share"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/BannerCalculator/app/src/main/res/layout/item_order.xml:85: Warning: Hardcoded string "Delete", should use @string resource [HardcodedText]
+                android:contentDescription="Delete" />
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 77 warnings

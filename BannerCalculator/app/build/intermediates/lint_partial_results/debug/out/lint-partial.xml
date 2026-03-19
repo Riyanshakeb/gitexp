@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.2" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.azizgraphics.clcltr.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.color.card_blue_dark"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="4"
+            column="12"
+            startOffset="109"
+            endLine="4"
+            endColumn="33"
+            endOffset="130"/>
+        <entry
+            name="model"
+            string="attr[colorSurfaceVariant(R),colorSurface(R),selectableItemBackgroundBorderless(R)],color[md_theme_secondary(U),card_blue_dark(D),md_theme_background(U),md_theme_surfaceVariant(U),md_theme_surface(U),input_border(U),md_theme_onSurface(U),md_theme_primary(U),input_bg(U),card_blue(U),md_theme_onBackground(U),md_theme_onPrimary(U),md_theme_onSecondary(U),md_theme_primaryContainer(U),md_theme_onPrimaryContainer(U)],drawable[ic_launcher_foreground(U),input_bg(U),ic_launcher_background(U)],id[nav_settings(U),tv_item_title(U),banner_preview(D),tv_current_price(D),et_height(U),tv_about_phone(D),spinner_height_unit(U),tv_project_name(U),card_materials(D),nav_history(U),card_customers(D),details_container(U),nav_calculate(U),card_default_price(D),btn_delete_item(U),tv_order_qty(U),rv_orders(D),tv_date(U),card_currency(D),et_quantity(U),spinner_width_unit(U),btn_add_item(D),et_price(U),tv_total_amount(D),bottom_navigation(U),card_theme(D),tv_item_total(U),tv_current_currency(D),btn_delete_order(U),tv_order_total(U),empty_state(D),et_width(U),tv_current_unit(D),tv_current_theme(D),btn_share(U),tv_total_sqft(D),fragment_container(U),rv_items(D),card_default_unit(D),tv_about_name(D),btn_save_order(D),btn_clear_all(D),tv_item_area(U)],layout[fragment_settings(U),item_order(U),fragment_calculate(U),item_banner(U),activity_main(U),fragment_history(U)],menu[bottom_nav_menu(U)],mipmap[ic_launcher_round(U),ic_launcher(U)],string[nav_settings(U),nav_history(U),nav_calculate(U),app_name(U)],style[Widget_Material3_Button_TonalButton(R),Widget_Material3_Button(R),Theme_Material3_DayNight_NoActionBar(R),Theme_BannerCalculator(U),Widget_Material3_Button_OutlinedButton(R)],xml[backup_rules(D)];13^b^8,40^1,41^c^2,42^1^c^0^4d^51^4e,43^2^13^c,44^1^46,45^1,46^4b^4a^49,47^14^12,48^14^12,50^4f^a^e^10^11^3^f^5^d^7^9^6;;;"/>
+        <location id="R.xml.backup_rules"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/xml/backup_rules.xml"
+            line="2"
+            column="1"
+            startOffset="40"
+            endLine="5"
+            endColumn="23"
+            endOffset="214"/>
+    </map>
+
+</incidents>

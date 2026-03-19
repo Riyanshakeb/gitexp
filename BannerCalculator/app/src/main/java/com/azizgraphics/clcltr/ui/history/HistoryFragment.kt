@@ -50,8 +50,8 @@ class HistoryFragment : Fragment() {
 
     private fun shareOrder(order: Order) {
         val gson = Gson()
-        val type = object : TypeToken<List<BannerItem>>() {}.type
-        val items: List<BannerItem> = gson.fromJson(order.itemsJson, type)
+        val listType = object : TypeToken<List<BannerItem>>() {}.type
+        val items: List<BannerItem> = gson.fromJson(order.itemsJson, listType)
 
         val sb = StringBuilder()
         sb.appendLine("═══ ${order.projectName} ═══")
@@ -66,11 +66,11 @@ class HistoryFragment : Fragment() {
         sb.appendLine("Total: ${CurrencyFormatter.format(order.totalAmount, order.currency)}")
         sb.appendLine("Total Area: ${"%.2f".format(order.totalSqft)} sq.ft")
 
-        val intent = Intent(Intent.ACTION_SEND).apply {
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
             putExtra(Intent.EXTRA_TEXT, sb.toString())
         }
-        startActivity(Intent.createChooser(intent, "Share Order"))
+        startActivity(Intent.createChooser(shareIntent, "Share Order"))
     }
 
     override fun onDestroyView() {

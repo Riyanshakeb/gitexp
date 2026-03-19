@@ -2,21 +2,33 @@
 
 ## Cursor Cloud specific instructions
 
-This repository (`Riyanshakeb/gitexp`) is a **Git learning/experimentation sandbox**. It contains no application source code, no dependency manifests, no build system, and no services.
+This repository contains a **Banner Calculator** Android application (`BannerCalculator/`) — a price calculator for printing/graphics businesses.
 
-### Repository contents
+### Prerequisites (not in update script — install once)
 
-- `GIT COMMANDS.txt` — a cheat sheet for Git fetch & rebase workflows.
-- `master` branch has additional test text files (`1.txt`, `2.txt`) used for practicing Git commands.
+- **Java 17+** (OpenJDK 21 available in the VM by default)
+- **Android SDK**: Install to `$HOME/android-sdk` with `platforms;android-34` and `build-tools;34.0.0`. The update script does not install the SDK; set `ANDROID_HOME=$HOME/android-sdk` before building.
 
-### Development environment
+### Building the app
 
-- **No dependencies** to install (no `package.json`, `requirements.txt`, `Makefile`, etc.).
-- **No lint, test, or build commands** exist.
-- **No services** to start or run.
-- The only tool required is `git` itself.
+```bash
+export ANDROID_HOME=$HOME/android-sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+cd BannerCalculator
+./gradlew assembleDebug    # debug APK
+./gradlew assembleRelease  # signed release APK (uses release-key.jks in project root)
+./gradlew lint             # Android lint
+```
 
-### Notes for future agents
+### Project structure
 
-- There is nothing to lint, test, build, or run. Any setup task for this repo is effectively a no-op beyond having `git` available.
-- If application code is added in the future, this section should be updated with the relevant setup, build, and run instructions.
+- `BannerCalculator/` — Full Android project (Kotlin, Room DB, Material Design 3)
+- Package: `com.azizgraphics.clcltr`
+- 3 screens via bottom navigation: Calculate, History, Settings
+- Fully offline, no internet required
+
+### Gotchas
+
+- The Gradle wrapper (`gradlew`) must have LF line endings. If it shows "cannot execute", run `sed -i 's/\r$//' gradlew`.
+- The release keystore (`release-key.jks`) is in the `BannerCalculator/` root — do not commit to production repos; here it is for development/demo purposes only.
+- No Android emulator is available in the Cloud Agent VM. APK verification is done via `aapt dump badging` and `apksigner verify`.
