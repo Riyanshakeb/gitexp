@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CurrencyConverter" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#6c5ce7</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:colorBackground">#f0f2f5</item>
+        <item name="colorSurface">#f0f2f5</item>
+        <item name="android:statusBarColor">#6c5ce7</item>
+        <item name="android:navigationBarColor">#f0f2f5</item>
+    </style>
+</resources>

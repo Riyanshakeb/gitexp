@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/drawable_input_bg.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/drawable/input_bg.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/layout_fragment_calculate.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/layout/fragment_calculate.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/layout_activity_main.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/layout_item_banner.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/layout/item_banner.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/layout_fragment_settings.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/layout_item_order.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/layout/item_order.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/xml_backup_rules.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/layout_fragment_history.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/layout/fragment_history.xml"
+    },
+    {
+        "merged": "com.azizgraphics.clcltr.app-merged_res-55:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.azizgraphics.clcltr.app-main-57:/drawable/ic_launcher_background.xml"
+    }
+]

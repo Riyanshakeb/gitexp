@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "cc.kryven.app-merged_res-33:/layout_activity_main.xml.flat",
+        "source": "cc.kryven.app-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "cc.kryven.app-merged_res-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "cc.kryven.app-main-34:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "cc.kryven.app-merged_res-33:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "cc.kryven.app-main-34:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "cc.kryven.app-merged_res-33:/drawable_btn_retry_bg.xml.flat",
+        "source": "cc.kryven.app-main-34:/drawable/btn_retry_bg.xml"
+    },
+    {
+        "merged": "cc.kryven.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "cc.kryven.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "cc.kryven.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "cc.kryven.app-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "cc.kryven.app-merged_res-33:/xml_network_security_config.xml.flat",
+        "source": "cc.kryven.app-main-34:/xml/network_security_config.xml"
+    }
+]

@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.2" type="incidents">
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Total Amount&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculate.xml"
+            line="33"
+            column="21"
+            startOffset="1272"
+            endLine="33"
+            endColumn="48"
+            endOffset="1299"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Rs. 0&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculate.xml"
+            line="42"
+            column="21"
+            startOffset="1672"
+            endLine="42"
+            endColumn="41"
+            endOffset="1692"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;0.00 sq.ft&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculate.xml"
+            line="52"
+            column="21"
+            startOffset="2119"
+            endLine="52"
+            endColumn="46"
+            endOffset="2144"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Add Item&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculate.xml"
+            line="99"
+            column="17"
+            startOffset="3961"
+            endLine="99"
+            endColumn="40"
+            endOffset="3984"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Clear All&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculate.xml"
+            line="109"
+            column="17"
+            startOffset="4410"
+            endLine="109"
+            endColumn="41"
+            endOffset="4434"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Save Order&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculate.xml"
+            line="120"
+            column="17"
+            startOffset="4914"
+            endLine="120"
+            endColumn="42"
+            endOffset="4939"/>
+    </incident>
+
+    <incident
+        id="UseCompoundDrawables"
+        severity="warning"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_history.xml"
+            line="7"
+            column="6"
+            startOffset="249"
+            endLine="7"
+            endColumn="18"
+            endOffset="261"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;No orders&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_history.xml"
+            line="21"
+            column="13"
+            startOffset="765"
+            endLine="21"
+            endColumn="51"
+            endOffset="803"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;No orders yet&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_history.xml"
+            line="26"
+            column="13"
+            startOffset="940"
+            endLine="26"
+            endColumn="41"
+            endOffset="968"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Settings&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="17"
+            column="13"
+            startOffset="615"
+            endLine="17"
+            endColumn="36"
+            endOffset="638"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;DEFAULTS&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="26"
+            column="13"
+            startOffset="933"
+            endLine="26"
+            endColumn="36"
+            endOffset="956"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Default Unit&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="51"
+            column="21"
+            startOffset="1919"
+            endLine="51"
+            endColumn="48"
+            endOffset="1946"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Feet&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="58"
+            column="21"
+            startOffset="2215"
+            endLine="58"
+            endColumn="40"
+            endOffset="2234"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Default Price/sq.ft&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="85"
+            column="21"
+            startOffset="3206"
+            endLine="85"
+            endColumn="55"
+            endOffset="3240"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Not set&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="92"
+            column="21"
+            startOffset="3510"
+            endLine="92"
+            endColumn="43"
+            endOffset="3532"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;APPEARANCE&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="104"
+            column="13"
+            startOffset="3871"
+            endLine="104"
+            endColumn="38"
+            endOffset="3896"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Theme&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="129"
+            column="21"
+            startOffset="4852"
+            endLine="129"
+            endColumn="41"
+            endOffset="4872"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;System&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="136"
+            column="21"
+            startOffset="5142"
+            endLine="136"
+            endColumn="42"
+            endOffset="5163"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Currency&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="163"
+            column="21"
+            startOffset="6130"
+            endLine="163"
+            endColumn="44"
+            endOffset="6153"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;PKR&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="170"
+            column="21"
+            startOffset="6426"
+            endLine="170"
+            endColumn="39"
+            endOffset="6444"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;MANAGEMENT&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="182"
+            column="13"
+            startOffset="6783"
+            endLine="182"
+            endColumn="38"
+            endOffset="6808"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Materials&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="199"
+            column="17"
+            startOffset="7436"
+            endLine="199"
+            endColumn="41"
+            endOffset="7460"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Customers&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="216"
+            column="17"
+            startOffset="8060"
+            endLine="216"
+            endColumn="41"
+            endOffset="8084"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;ABOUT&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="226"
+            column="13"
+            startOffset="8382"
+            endLine="226"
+            endColumn="33"
+            endOffset="8402"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Banner 1&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="28"
+            column="17"
+            startOffset="1037"
+            endLine="28"
+            endColumn="40"
+            endOffset="1060"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Delete&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="38"
+            column="17"
+            startOffset="1489"
+            endLine="38"
+            endColumn="52"
+            endOffset="1524"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Width&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="54"
+            column="17"
+            startOffset="2037"
+            endLine="54"
+            endColumn="37"
+            endOffset="2057"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="57"
+            column="14"
+            startOffset="2118"
+            endLine="57"
+            endColumn="22"
+            endOffset="2126"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;0&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="63"
+            column="17"
+            startOffset="2372"
+            endLine="63"
+            endColumn="33"
+            endOffset="2388"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Height&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="89"
+            column="17"
+            startOffset="3314"
+            endLine="89"
+            endColumn="38"
+            endOffset="3335"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="92"
+            column="14"
+            startOffset="3396"
+            endLine="92"
+            endColumn="22"
+            endOffset="3404"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;0&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="98"
+            column="17"
+            startOffset="3651"
+            endLine="98"
+            endColumn="33"
+            endOffset="3667"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Qty&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="124"
+            column="17"
+            startOffset="4604"
+            endLine="124"
+            endColumn="35"
+            endOffset="4622"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="127"
+            column="14"
+            startOffset="4683"
+            endLine="127"
+            endColumn="22"
+            endOffset="4691"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;1&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="133"
+            column="17"
+            startOffset="4933"
+            endLine="133"
+            endColumn="33"
+            endOffset="4949"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;1&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="134"
+            column="17"
+            startOffset="4967"
+            endLine="134"
+            endColumn="33"
+            endOffset="4983"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Rate&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="144"
+            column="17"
+            startOffset="5370"
+            endLine="144"
+            endColumn="36"
+            endOffset="5389"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="148"
+            column="14"
+            startOffset="5498"
+            endLine="148"
+            endColumn="22"
+            endOffset="5506"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;0&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="154"
+            column="17"
+            startOffset="5752"
+            endLine="154"
+            endColumn="33"
+            endOffset="5768"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;0.00 sq.ft&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="175"
+            column="17"
+            startOffset="6508"
+            endLine="175"
+            endColumn="42"
+            endOffset="6533"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Rs. 0&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_banner.xml"
+            line="183"
+            column="17"
+            startOffset="6813"
+            endLine="183"
+            endColumn="37"
+            endOffset="6833"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Share&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_order.xml"
+            line="76"
+            column="17"
+            startOffset="2884"
+            endLine="76"
+            endColumn="51"
+            endOffset="2918"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Delete&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_order.xml"
+            line="85"
+            column="17"
+            startOffset="3301"
+            endLine="85"
+            endColumn="52"
+            endOffset="3336"/>
+    </incident>
+
+    <incident
+        id="MonochromeLauncherIcon"
+        severity="warning"
+        message="The application adaptive icon is missing a monochrome tag">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"
+            startOffset="40"
+            endLine="5"
+            endColumn="17"
+            endOffset="276"/>
+    </incident>
+
+    <incident
+        id="MonochromeLauncherIcon"
+        severity="warning"
+        message="The application adaptive roundIcon is missing a monochrome tag">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"
+            column="1"
+            startOffset="40"
+            endLine="5"
+            endColumn="17"
+            endOffset="276"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/calculate/BannerItemAdapter.kt"
+            line="44"
+            column="35"
+            startOffset="1909"
+            endLine="44"
+            endColumn="59"
+            endOffset="1933"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/calculate/BannerItemAdapter.kt"
+            line="44"
+            column="36"
+            startOffset="1910"
+            endLine="44"
+            endColumn="43"
+            endOffset="1917"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/calculate/BannerItemAdapter.kt"
+            line="44"
+            column="45"
+            startOffset="1919"
+            endLine="44"
+            endColumn="57"
+            endOffset="1931"/>
+    </incident>
+
+    <incident
+        id="DrawAllocation"
+        severity="warning"
+        message="Avoid object allocations during draw/layout operations (preallocate and reuse instead)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/calculate/BannerPreviewView.kt"
+            line="68"
+            column="24"
+            startOffset="2258"
+            endLine="68"
+            endColumn="63"
+            endOffset="2297"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/calculate/CalculateFragment.kt"
+            line="46"
+            column="21"
+            startOffset="1841"
+            endLine="46"
+            endColumn="52"
+            endOffset="1872"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/calculate/CalculateFragment.kt"
+            line="63"
+            column="13"
+            startOffset="2416"
+            endLine="63"
+            endColumn="44"
+            endOffset="2447"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/calculate/CalculateFragment.kt"
+            line="68"
+            column="13"
+            startOffset="2553"
+            endLine="68"
+            endColumn="44"
+            endOffset="2584"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt"
+            line="51"
+            column="34"
+            startOffset="2132"
+            endLine="51"
+            endColumn="63"
+            endOffset="2161"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt"
+            line="51"
+            column="35"
+            startOffset="2133"
+            endLine="51"
+            endColumn="40"
+            endOffset="2138"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt"
+            line="76"
+            column="24"
+            startOffset="3140"
+            endLine="76"
+            endColumn="156"
+            endOffset="3272"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt"
+            line="76"
+            column="25"
+            startOffset="3141"
+            endLine="76"
+            endColumn="32"
+            endOffset="3148"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt"
+            line="76"
+            column="34"
+            startOffset="3150"
+            endLine="76"
+            endColumn="39"
+            endOffset="3155"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/history/OrderAdapter.kt"
+            line="76"
+            column="68"
+            startOffset="3184"
+            endLine="76"
+            endColumn="76"
+            endOffset="3192"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/settings/SettingsFragment.kt"
+            line="256"
+            column="36"
+            startOffset="10291"
+            endLine="256"
+            endColumn="183"
+            endOffset="10438"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/azizgraphics/clcltr/ui/settings/SettingsFragment.kt"
+            line="257"
+            column="38"
+            startOffset="10476"
+            endLine="257"
+            endColumn="50"
+            endOffset="10488"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.18.0">
+        <fix-replace
+            description="Change to 1.18.0"
+            family="Update versions"
+            oldString="1.12.0"
+            replacement="1.18.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="54"
+            column="21"
+            startOffset="1179"
+            endLine="54"
+            endColumn="50"
+            endOffset="1208"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="55"
+            column="21"
+            startOffset="1231"
+            endLine="55"
+            endColumn="55"
+            endOffset="1265"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.11.0 is available: 1.13.0">
+        <fix-replace
+            description="Change to 1.13.0"
+            family="Update versions"
+            oldString="1.11.0"
+            replacement="1.13.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="56"
+            column="21"
+            startOffset="1288"
+            endLine="56"
+            endColumn="64"
+            endOffset="1331"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="57"
+            column="21"
+            startOffset="1354"
+            endLine="57"
+            endColumn="69"
+            endOffset="1402"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-fragment-ktx than 2.7.7 is available: 2.9.7">
+        <fix-replace
+            description="Change to 2.9.7"
+            family="Update versions"
+            oldString="2.7.7"
+            replacement="2.9.7"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="58"
+            column="21"
+            startOffset="1425"
+            endLine="58"
+            endColumn="70"
+            endOffset="1474"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-ui-ktx than 2.7.7 is available: 2.9.7">
+        <fix-replace
+            description="Change to 2.9.7"
+            family="Update versions"
+            oldString="2.7.7"
+            replacement="2.9.7"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="59"
+            column="21"
+            startOffset="1497"
+            endLine="59"
+            endColumn="64"
+            endOffset="1540"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.10.0">
+        <fix-replace
+            description="Change to 2.10.0"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.10.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="60"
+            column="21"
+            startOffset="1563"
+            endLine="60"
+            endColumn="69"
+            endOffset="1611"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.10.0">
+        <fix-replace
+            description="Change to 2.10.0"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.10.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="61"
+            column="21"
+            startOffset="1634"
+            endLine="61"
+            endColumn="68"
+            endOffset="1681"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.8.4"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="62"
+            column="21"
+            startOffset="1704"
+            endLine="62"
+            endColumn="53"
+            endOffset="1736"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.8.4"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="63"
+            column="21"
+            startOffset="1759"
+            endLine="63"
+            endColumn="49"
+            endOffset="1787"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.8.4"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="64"
+            column="10"
+            startOffset="1799"
+            endLine="64"
+            endColumn="43"
+            endOffset="1832"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0">
+        <fix-replace
+            description="Change to 1.4.0"
+            family="Update versions"
+            oldString="1.3.2"
+            replacement="1.4.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="65"
+            column="21"
+            startOffset="1855"
+            endLine="65"
+            endColumn="61"
+            endOffset="1895"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `?attr/colorSurface` with a theme that also paints a background (inferred theme is `@style/Theme.BannerCalculator`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculate.xml"
+            line="6"
+            column="5"
+            startOffset="232"
+            endLine="6"
+            endColumn="44"
+            endOffset="271"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `?attr/colorSurface` with a theme that also paints a background (inferred theme is `@style/Theme.BannerCalculator`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_history.xml"
+            line="5"
+            column="5"
+            startOffset="200"
+            endLine="5"
+            endColumn="44"
+            endOffset="239"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `?attr/colorSurface` with a theme that also paints a background (inferred theme is `@style/Theme.BannerCalculator`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="6"
+            column="5"
+            startOffset="256"
+            endLine="6"
+            endColumn="44"
+            endOffset="295"/>
+    </incident>
+
+</incidents>
