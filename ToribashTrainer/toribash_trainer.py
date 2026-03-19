@@ -294,6 +294,12 @@ class ToribashTrainer:
         info.pack(padx=10, pady=10, anchor="w")
 
         scripts = [
+            ("ai_fighter.lua",
+             "AI MEMORY FIGHTER — Learns your moves for 10 rounds, then auto-fights using best combos.",
+             self.get_auto_win_script),
+            ("ai_fighter_advanced.lua",
+             "ADVANCED AI — Combo dictionary, adaptive styles (aggressive/defensive/spin kick/uppercut), persistent memory.",
+             self.get_auto_win_script),
             ("auto_win.lua",
              "Automatically sets all opponent joints to relaxed state, making them collapse.",
              self.get_auto_win_script),
@@ -484,6 +490,11 @@ class ToribashTrainer:
             "instant_dismember.lua": self.get_instant_dismember_script(),
             "practice_helper.lua": self.get_practice_helper_script(),
         }
+        ai_scripts_dir = Path(__file__).parent / "lua_scripts"
+        for ai_script in ["ai_fighter.lua", "ai_fighter_advanced.lua"]:
+            ai_path = ai_scripts_dir / ai_script
+            if ai_path.exists():
+                scripts[ai_script] = ai_path.read_text()
 
         for name, content in scripts.items():
             (script_dir / name).write_text(content)

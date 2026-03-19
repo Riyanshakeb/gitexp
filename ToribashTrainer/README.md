@@ -21,6 +21,18 @@ Modify game rules, physics, and install helper Lua scripts to make learning easi
 | Sumo Mode | Push-off-ring wins, no dismemberment |
 | Tutorial Easy | God mode + slow turns + light gravity (best for learning) |
 
+### AI Memory Auto-Fighter
+| Script | In-game command | Effect |
+|---|---|---|
+| `ai_fighter.lua` | `/ls ai_fighter` | Learns your moves for 10 rounds, then auto-fights using best combos |
+| `ai_fighter_advanced.lua` | `/ls ai_fighter_advanced` | Advanced AI with combo dictionary, adaptive styles, persistent memory |
+
+**How the AI works:**
+1. **Learn Mode** (first 5-10 rounds): Play normally. The AI records every joint state and scores them by damage dealt.
+2. **Fight Mode** (automatic): The AI mixes the best-scoring moves, mutates combos for variety, and adapts its style.
+3. **Adaptive Styles**: Aggressive (arm attacks), Defensive (leg stability), Spin Kick, Uppercut — auto-selected based on what works.
+4. **Persistent Memory**: Saves to `ai_memory.dat` — gets smarter across game sessions.
+
 ### Lua Scripts
 | Script | In-game command | Effect |
 |---|---|---|
