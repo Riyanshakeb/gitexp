@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency Converter — Real-Time Exchange Rates</title>
+  <meta name="description" content="Convert currencies in real-time with live exchange rates. Fast, free, and responsive." />
+  <meta name="theme-color" content="#6c5ce7" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💱</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">💱</span>
+          <div>
+            <h1>Currency Converter</h1>
+            <p class="tagline">Real-time exchange rates</p>
+          </div>
+        </div>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Converter -->
+    <main class="main">
+      <div class="converter-card glass">
+        <!-- From Currency -->
+        <div class="currency-block">
+          <label class="field-label">From</label>
+          <div class="input-row">
+            <input type="number" id="fromAmount" class="amount-input" value="1" min="0" step="any" placeholder="Enter amount" />
+            <div class="select-wrapper">
+              <select id="fromCurrency" class="currency-select"></select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Swap Button -->
+        <div class="swap-container">
+          <button id="swapBtn" class="swap-btn" aria-label="Swap currencies">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- To Currency -->
+        <div class="currency-block">
+          <label class="field-label">To</label>
+          <div class="input-row">
+            <input type="text" id="toAmount" class="amount-input result-input" readonly placeholder="Converted amount" />
+            <div class="select-wrapper">
+              <select id="toCurrency" class="currency-select"></select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rate Info -->
+        <div class="rate-info" id="rateInfo">
+          <span class="rate-text" id="rateText">Loading rates...</span>
+          <span class="rate-time" id="rateTime"></span>
+        </div>
+      </div>
+
+      <!-- Quick Amounts -->
+      <div class="quick-amounts">
+        <button class="quick-btn" data-amount="1">1</button>
+        <button class="quick-btn" data-amount="10">10</button>
+        <button class="quick-btn" data-amount="100">100</button>
+        <button class="quick-btn" data-amount="1000">1K</button>
+        <button class="quick-btn" data-amount="10000">10K</button>
+        <button class="quick-btn" data-amount="100000">100K</button>
+      </div>
+
+      <!-- Popular Currencies Grid -->
+      <section class="popular-section">
+        <h2 class="section-title">Popular Conversions</h2>
+        <div class="popular-grid" id="popularGrid"></div>
+      </section>
+
+      <!-- Historical Chart Placeholder -->
+      <section class="chart-section glass">
+        <h2 class="section-title">Exchange Rate Trend</h2>
+        <canvas id="rateChart" width="600" height="250"></canvas>
+        <div class="chart-period">
+          <button class="period-btn active" data-days="7">7D</button>
+          <button class="period-btn" data-days="30">30D</button>
+          <button class="period-btn" data-days="90">90D</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Rates from <a href="https://www.frankfurter.app" target="_blank" rel="noopener">Frankfurter API</a> (European Central Bank)</p>
+      <p class="footer-sub">Free &middot; No signup &middot; Open source</p>
+    </footer>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p>Loading exchange rates...</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
